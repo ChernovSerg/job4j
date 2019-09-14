@@ -24,8 +24,8 @@ public class MultiMaxTest {
     @Test
     public void MultiMaxTest3() {
         MultiMax check = new MultiMax();
-        int result = check.max(6, 3, 10);
-        assertThat(result, is(10));
+        int result = check.max(1, 2, 3);
+        assertThat(result, is(3));
     }
 
 }
