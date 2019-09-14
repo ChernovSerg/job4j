@@ -42,4 +42,24 @@ public class CounterTest {
         assertThat(sum, is(-4));
     }
 
+    @Test
+    public void SumTest6() {
+        Counter cnt = new Counter();
+        int sum =  cnt.add(4,-2);
+        assertThat(sum, is(0));
+    }
+
+    @Test
+    public void SumTest7() {
+        Counter cnt = new Counter();
+        int sum =  cnt.add(1,1);
+        assertThat(sum, is(0));
+    }
+
+    @Test
+    public void SumTest8() {
+        Counter cnt = new Counter();
+        int sum =  cnt.add(4,4);
+        assertThat(sum, is(4));
+    }
 }
