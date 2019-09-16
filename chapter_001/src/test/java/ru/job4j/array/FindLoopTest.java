@@ -88,5 +88,72 @@ public class FindLoopTest {
         assertThat(result, is(expect));
     }
 
+    @Test
+    public void findMinGood() {
+        int[] input = new int[]{5, 2, 10, 2, 4};
+        int result = FindLoop.min(input, 0, input.length-1);
+        assertThat(result, is(2));
+    }
 
+    @Test
+    public void findMinFromEmptyArray() {
+        int[] input = null;
+        try {
+            int result = FindLoop.min(input, 0, input.length);
+        } catch (NullPointerException e) {
+            assertThat(e, is(NullPointerException.class));
+        }
+    }
+
+    @Test
+    public void findMinFromBlankArray() {
+        int[] input = new int[]{};
+        try {
+            int result = FindLoop.min(input, 0, input.length);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            assertThat(e, is(ArrayIndexOutOfBoundsException.class));
+        }
+    }
+
+    @Test
+    public void findMinWithIncorrectlyArgument() {
+        int[] input = new int[]{5, 2, 10, 2, 4};
+        try {
+            int result = FindLoop.min(input, 0, 10);
+        } catch (IllegalArgumentException e) {
+            assertThat(e, is(IllegalArgumentException.class));
+        }
+    }
+
+    @Test
+    public void sortTest1() {
+        int[] input = new int[]{5, 2, 10, 2, 4};
+        int[] expect = new int[]{2, 2, 4, 5, 10};
+        int[] result = FindLoop.sort(input);
+        assertThat(result, is(expect));
+    }
+
+    @Test
+    public void sortTest2() {
+        int[] input = new int[]{5, 2, 10};
+        int[] expect = new int[]{2, 5, 10};
+        int[] result = FindLoop.sort(input);
+        assertThat(result, is(expect));
+    }
+
+    @Test
+    public void sortTest3() {
+        int[] input = new int[]{10, 5, 2};
+        int[] expect = new int[]{2, 5, 10};
+        int[] result = FindLoop.sort(input);
+        assertThat(result, is(expect));
+    }
+
+    @Test
+    public void sortTest4() {
+        int[] input = new int[]{5, 2};
+        int[] expect = new int[]{2, 5};
+        int[] result = FindLoop.sort(input);
+        assertThat(result, is(expect));
+    }
 }
