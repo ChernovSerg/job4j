@@ -1,10 +1,10 @@
-package ru.job4j.part_01;
+package ru.job4j.part01;
 
 public class SqArea {
     public static int square(int p, int k) {
-        int H = p / (2*(k+1));
-        int L = H * k;
-        return H * L;
+        int h = p / (2 * (k + 1));
+        int lng = h * k;
+        return h * lng;
     }
 
     public static void main(String[] args) {

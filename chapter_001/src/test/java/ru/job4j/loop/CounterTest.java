@@ -8,58 +8,58 @@ import static org.hamcrest.core.Is.is;
 public class CounterTest {
 
     @Test
-    public void SumTest1() {
+    public void sumTest1() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(1,5);
+        int sum = cnt.add(1, 5);
         assertThat(sum, is(6));
     }
 
     @Test
-    public void SumTest2() {
+    public void sumTest2() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(1,4);
+        int sum = cnt.add(1, 4);
         assertThat(sum, is(6));
     }
 
     @Test
-    public void SumTest3() {
+    public void sumTest3() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(2,7);
+        int sum = cnt.add(2, 7);
         assertThat(sum, is(12));
     }
 
     @Test
-    public void SumTest4() {
+    public void sumTest4() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(2,6);
+        int sum = cnt.add(2, 6);
         assertThat(sum, is(12));
     }
 
     @Test
-    public void SumTest5() {
+    public void sumTest5() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(-5,2);
+        int sum = cnt.add(-5, 2);
         assertThat(sum, is(-4));
     }
 
     @Test
-    public void SumTest6() {
+    public void sumTest6() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(4,-2);
+        int sum = cnt.add(4, -2);
         assertThat(sum, is(0));
     }
 
     @Test
-    public void SumTest7() {
+    public void sumTest7() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(1,1);
+        int sum = cnt.add(1, 1);
         assertThat(sum, is(0));
     }
 
     @Test
-    public void SumTest8() {
+    public void sumTest8() {
         Counter cnt = new Counter();
-        int sum =  cnt.add(4,4);
+        int sum = cnt.add(4, 4);
         assertThat(sum, is(4));
     }
 }

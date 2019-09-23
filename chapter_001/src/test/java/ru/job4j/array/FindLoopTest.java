@@ -91,7 +91,7 @@ public class FindLoopTest {
     @Test
     public void findMinGood() {
         int[] input = new int[]{5, 2, 10, 2, 4};
-        int result = FindLoop.min(input, 0, input.length-1);
+        int result = FindLoop.min(input, 0, input.length - 1);
         assertThat(result, is(2));
     }
 

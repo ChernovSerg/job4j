@@ -13,7 +13,7 @@ public class PrimeNumber {
                         break;
                     }
                 }
-                if (remainder == false && j == i) {
+                if (!remainder && j == i) {
                     count++;
                 }
             }

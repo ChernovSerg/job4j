@@ -16,7 +16,7 @@ public class MatrixCheckTest {
         };
         char[] expected = {' ', 'X', 'X', ' ', ' '};
 
-        char[] result = MatrixCheck.getRow(input,1);
+        char[] result = MatrixCheck.getRow(input, 1);
         System.out.println(result);
         assertThat(result, is(expected));
     }
@@ -31,7 +31,7 @@ public class MatrixCheckTest {
         };
         char[] expected = {' ', 'X', ' ', 'Y'};
 
-        char[] result = MatrixCheck.getColumn(input,1);
+        char[] result = MatrixCheck.getColumn(input, 1);
         System.out.println(result);
         assertThat(result, is(expected));
     }

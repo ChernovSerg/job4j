@@ -1,6 +1,7 @@
 package ru.job4j.array;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -21,7 +22,7 @@ public class ArrayCharTest {
     public void whenNotStartWithPrefixThenFalse() {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] pref = {'H', 'i'};
-        boolean result =ArrayChar.startsWith(word, pref);
+        boolean result = ArrayChar.startsWith(word, pref);
         assertThat(result, is(false));
     }
 
@@ -29,7 +30,7 @@ public class ArrayCharTest {
     public void whenWordLessPrefixThenFalse() {
         char[] word = {'H', 'e'};
         char[] pref = {'H', 'e', 'l'};
-        boolean result =ArrayChar.startsWith(word, pref);
+        boolean result = ArrayChar.startsWith(word, pref);
         assertThat(result, is(false));
     }
 
@@ -37,7 +38,7 @@ public class ArrayCharTest {
     public void whenWordIsNullThenFalse() {
         char[] word = null;
         char[] pref = {'H', 'i'};
-        boolean result =ArrayChar.startsWith(word, pref);
+        boolean result = ArrayChar.startsWith(word, pref);
         assertThat(result, is(false));
     }
 
@@ -45,7 +46,7 @@ public class ArrayCharTest {
     public void whenPrefixIsNullThenFalse() {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] pref = null;
-        boolean result =ArrayChar.startsWith(word, pref);
+        boolean result = ArrayChar.startsWith(word, pref);
         assertThat(result, is(false));
     }
 

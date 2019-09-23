@@ -1,24 +1,26 @@
-package ru.job4j.Calculate;
+package ru.job4j.calculate;
 
 /**
  * It is simple calculator.
- * @author Сергей Ч
  *
+ * @author Сергей Ч
  */
 public class Calculator {
     /**
      * Method adds two arguments and prints them.
+     *
      * @param first
      * @param second
      * @return nothing
      */
     public static void add(double first, double second) {
-        double result =  first + second;
+        double result = first + second;
         System.out.println(first + "+" + second + " = " + result);
     }
 
     /**
      * Method divides two arguments and prints them.
+     *
      * @param first
      * @param second
      * @return nothing
@@ -30,6 +32,7 @@ public class Calculator {
 
     /**
      * Method multiplies two arguments and prints them.
+     *
      * @param first
      * @param second
      * @return nothing
@@ -41,6 +44,7 @@ public class Calculator {
 
     /**
      * Method subtracts two arguments and prints them.
+     *
      * @param first
      * @param second
      * @return nothing
@@ -54,6 +58,6 @@ public class Calculator {
         add(1, 1);
         div(4, 2);
         multiply(2, 1);
-        subtrack(10,5);
+        subtrack(10, 5);
     }
 }
