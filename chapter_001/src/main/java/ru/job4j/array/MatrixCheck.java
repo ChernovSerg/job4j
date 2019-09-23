@@ -49,9 +49,7 @@ public class MatrixCheck {
             for (int row = 0; row < board.length; row++) {
                 int count1 = 0;
                 int count2 = 0;
-                if (board[row][row] != 'X') {
-                    continue;
-                } else {
+                if (board[row][row] == 'X') {
                     for (int cell = 0; cell < board.length; cell++) {
                         if (board[row][cell] == 'X') {
                             count1++;
