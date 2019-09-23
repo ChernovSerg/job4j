@@ -33,6 +33,44 @@ public class MatrixCheck {
     }
 
     /**
+     * Method determine if there is a win horizontal or vertical line.
+     * Win simbol is 'X'.
+     *
+     * @param board source matrix (playing field)
+     * @return true if there is a win, else - false.
+     */
+    public static boolean isWin2(char[][] board) {
+        boolean result = false;
+        if (board != null
+                && board.length > 0
+                && board[0].length > 0
+                && board[0].length == board.length
+        ) {
+            for (int row = 0; row < board.length; row++) {
+                int count1 = 0;
+                int count2 = 0;
+                if (board[row][row] != 'X') {
+                    continue;
+                } else {
+                    for (int cell = 0; cell < board.length; cell++) {
+                        if (board[row][cell] == 'X') {
+                            count1++;
+                        }
+                        if (board[cell][row] == 'X') {
+                            count2++;
+                        }
+                    }
+                    if (count1 == board.length || count2 == board.length) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
      * Returns the specified row of the matrix
      *
      * @param data   matrix
@@ -66,7 +104,7 @@ public class MatrixCheck {
      * Determine if the array is mono.
      *
      * @param data source array.
-     * @param ch simbol that
+     * @param ch   simbol that
      * @return true if array is mono, else - false.
      */
     public static boolean arrayIsMono(char[] data, char ch) {
@@ -99,6 +137,8 @@ public class MatrixCheck {
         };
         boolean win = isWin(hasWinVertical);
         System.out.println("A board has a winner : " + win);
+        boolean win2 = isWin2(hasWinVertical);
+        System.out.println("A board has a winner2 : " + win2);
         System.out.println();
 
 
@@ -111,6 +151,8 @@ public class MatrixCheck {
         };
         boolean winHor = isWin(hasWinHor);
         System.out.println("A board has a winner : " + winHor);
+        boolean winHor2 = isWin2(hasWinHor);
+        System.out.println("A board has a winner : " + winHor2);
         System.out.println();
 
 
@@ -123,5 +165,7 @@ public class MatrixCheck {
         };
         boolean lose = isWin(notWin);
         System.out.println("A board has a winner : " + lose);
+        boolean lose2 = isWin2(notWin);
+        System.out.println("A board has a winner : " + lose2);
     }
 }
