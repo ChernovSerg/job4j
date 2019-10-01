@@ -1,6 +1,12 @@
 package ru.job4j.array;
 
 public class Defragment {
+    /**
+     * Sorts the array so that zero values are at the end
+     *
+     * @param array input rray of strings
+     * @return sorted array
+     */
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             String cell = array[index];

@@ -3,6 +3,12 @@ package ru.job4j.sort;
 import java.util.Arrays;
 
 public class Merge {
+    /**
+     * Merging two sorted arrays
+     * @param left first array
+     * @param right second array
+     * @return resulting sorted arrays
+     */
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
         if (left.length == 0) {

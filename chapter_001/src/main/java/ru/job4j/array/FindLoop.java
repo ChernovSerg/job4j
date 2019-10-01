@@ -50,12 +50,10 @@ public class FindLoop {
     public static int[] sort(int[] data) {
         int min = min(data, 0, data.length - 1);
         int posMin = FindLoop.indexOf(data, min, 0, data.length - 1);
-
         if (data.length > 1) {
             int temp = data[0];
             data[0] = data[posMin];
             data[posMin] = temp;
-
             for (int i = 1; i < data.length; i++) {
                 int newMin = min(data, i, data.length - 1);
                 int newPosMin = FindLoop.indexOf(data, newMin, i, data.length - 1);

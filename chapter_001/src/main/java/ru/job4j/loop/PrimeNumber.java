@@ -1,6 +1,11 @@
 package ru.job4j.loop;
 
 public class PrimeNumber {
+    /**
+     * Determines the number of primes in the range from 1 to "finish"
+     * @param finish
+     * @return number of primes
+     */
     public int calc(int finish) {
         int count = 0;
         if (finish > 1) {

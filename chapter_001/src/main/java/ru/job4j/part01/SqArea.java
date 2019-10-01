@@ -1,6 +1,12 @@
 package ru.job4j.part01;
 
 public class SqArea {
+    /**
+     * Determines the area of a square
+     * @param p perimeter
+     * @param k coefficient
+     * @return area of a square
+     */
     public static int square(int p, int k) {
         int h = p / (2 * (k + 1));
         int lng = h * k;

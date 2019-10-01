@@ -1,7 +1,5 @@
 package ru.job4j.array;
 
-import java.util.Arrays;
-
 public class MatrixCheck {
     /**
      * Method determine if there is a win horizontal or vertical line.
@@ -10,7 +8,7 @@ public class MatrixCheck {
      * @param board source matrix (playing field)
      * @return true if there is a win, else - false.
      */
-    public static boolean isWin(char[][] board) {
+    public static boolean isWin2(char[][] board) {
         boolean result = false;
         if (board != null
                 && board.length > 0
@@ -35,11 +33,12 @@ public class MatrixCheck {
     /**
      * Method determine if there is a win horizontal or vertical line.
      * Win simbol is 'X'.
+     * Method is more optimized than method "isWin2".
      *
      * @param board source matrix (playing field)
      * @return true if there is a win, else - false.
      */
-    public static boolean isWin2(char[][] board) {
+    public static boolean isWin(char[][] board) {
         boolean result = false;
         if (board != null
                 && board.length > 0
@@ -102,7 +101,7 @@ public class MatrixCheck {
      * Determine if the array is mono.
      *
      * @param data source array.
-     * @param ch   simbol that
+     * @param ch   the character which the array should be filled
      * @return true if array is mono, else - false.
      */
     public static boolean arrayIsMono(char[] data, char ch) {
@@ -116,7 +115,7 @@ public class MatrixCheck {
                         break;
                     }
                 }
-            } else { //data.length == 0
+            } else {
                 result = true;
             }
         }
@@ -125,7 +124,6 @@ public class MatrixCheck {
 
 
     public static void main(String[] args) {
-//        int[][] m = {{}};
         char[][] hasWinVertical = {
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
@@ -133,12 +131,11 @@ public class MatrixCheck {
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
         };
-        boolean win = isWin(hasWinVertical);
+        boolean win = isWin2(hasWinVertical);
         System.out.println("A board has a winner : " + win);
-        boolean win2 = isWin2(hasWinVertical);
+        boolean win2 = isWin(hasWinVertical);
         System.out.println("A board has a winner2 : " + win2);
         System.out.println();
-
 
         char[][] hasWinHor = {
                 {'_', '_', '_', '_', '_'},
@@ -147,12 +144,11 @@ public class MatrixCheck {
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
         };
-        boolean winHor = isWin(hasWinHor);
+        boolean winHor = isWin2(hasWinHor);
         System.out.println("A board has a winner : " + winHor);
-        boolean winHor2 = isWin2(hasWinHor);
+        boolean winHor2 = isWin(hasWinHor);
         System.out.println("A board has a winner : " + winHor2);
         System.out.println();
-
 
         char[][] notWin = {
                 {'_', '_', 'X', '_', '_'},
@@ -161,9 +157,9 @@ public class MatrixCheck {
                 {'_', '_', 'X', '_', '_'},
                 {'_', '_', 'X', '_', '_'},
         };
-        boolean lose = isWin(notWin);
+        boolean lose = isWin2(notWin);
         System.out.println("A board has a winner : " + lose);
-        boolean lose2 = isWin2(notWin);
+        boolean lose2 = isWin(notWin);
         System.out.println("A board has a winner : " + lose2);
     }
 }

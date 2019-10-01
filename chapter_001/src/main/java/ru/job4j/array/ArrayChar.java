@@ -3,6 +3,7 @@ package ru.job4j.array;
 public class ArrayChar {
     /**
      * Method determines the "word" begins or not at the "pref"
+     *
      * @param word
      * @param pref
      * @return true, if word ends in "pref"
@@ -28,6 +29,7 @@ public class ArrayChar {
 
     /**
      * Method determines the "word" ends or not at the "post"
+     *
      * @param word
      * @param post
      * @return true, if word ends in "post"

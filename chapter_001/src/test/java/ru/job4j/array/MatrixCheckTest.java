@@ -59,7 +59,7 @@ public class MatrixCheckTest {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
         };
-        boolean result = MatrixCheck.isWin(input);
+        boolean result = MatrixCheck.isWin2(input);
         assertThat(result, is(true));
     }
 
@@ -72,7 +72,7 @@ public class MatrixCheckTest {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
         };
-        boolean result = MatrixCheck.isWin(input);
+        boolean result = MatrixCheck.isWin2(input);
         assertThat(result, is(false));
     }
 
@@ -85,7 +85,7 @@ public class MatrixCheckTest {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
         };
-        boolean result = MatrixCheck.isWin2(input);
+        boolean result = MatrixCheck.isWin(input);
         assertThat(result, is(true));
     }
 
@@ -98,7 +98,7 @@ public class MatrixCheckTest {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
         };
-        boolean result = MatrixCheck.isWin2(input);
+        boolean result = MatrixCheck.isWin(input);
         assertThat(result, is(false));
     }
 }

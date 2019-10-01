@@ -1,6 +1,12 @@
 package ru.job4j.array;
 
 public class Check {
+    /**
+     * Method determines if an array consists of identical elements
+     *
+     * @param data array of boolean values
+     * @return true if array consists of identical elements, else - false
+     */
     public boolean mono(boolean[] data) {
         boolean result = false;
         if (data.length > 0) {
