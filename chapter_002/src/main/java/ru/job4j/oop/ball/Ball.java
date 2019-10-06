@@ -1,4 +1,4 @@
-package ru.job4j.oop.Ball;
+package ru.job4j.oop.ball;
 
 public class Ball {
     public void song() {

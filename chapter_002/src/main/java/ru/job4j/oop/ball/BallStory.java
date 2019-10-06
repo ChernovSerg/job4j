@@ -1,4 +1,4 @@
-package ru.job4j.oop.Ball;
+package ru.job4j.oop.ball;
 
 public class BallStory {
     public static void main(String[] args) {
