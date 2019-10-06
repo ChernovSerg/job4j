@@ -4,8 +4,7 @@ import org.junit.Test;
 import ru.job4j.part01.Point;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class TriangleTest {
@@ -27,8 +26,8 @@ public class TriangleTest {
     @Test
     public void calcPerimeter() {
         Triangle triangle = new Triangle(new Point(0, 0), new Point(0, 1), new Point(1, 0));
-        int actual = (int) (triangle.perimeter() * 10000);
-        assertThat(actual, is(34142));
+        double actual = triangle.perimeter();
+        assertEquals(3.4142, actual, 0.0001);
     }
 
     @Test
@@ -36,7 +35,6 @@ public class TriangleTest {
         Triangle triangle = new Triangle(new Point(0, 0), new Point(0, 1), new Point(1, 0));
         double expected_area = 0.5;
         double actual_area = triangle.area();
-        boolean expected = Math.abs(expected_area - actual_area) < 0.1e6;
-        assertTrue(expected);
+        assertEquals(expected_area, actual_area, 0.00001);
     }
 }
