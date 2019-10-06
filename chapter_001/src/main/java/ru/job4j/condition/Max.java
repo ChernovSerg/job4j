@@ -11,4 +11,21 @@ public class Max {
         int result = left >= right ? left : right;
         return result;
     }
+
+    /**
+     * Return maximum of three values
+     * @param first
+     * @param second
+     * @param third
+     * @return maximum
+     */
+    public static double max(double first, double second, double third) {
+        double max = first;
+        if (second >= max && second >= third) {
+            max = second;
+        } else if (third >= max && third >= second) {
+            max = third;
+        }
+        return max;
+    }
 }

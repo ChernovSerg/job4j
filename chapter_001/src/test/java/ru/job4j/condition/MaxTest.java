@@ -23,4 +23,29 @@ public class MaxTest {
         int result = Max.max(2, 2);
         assertThat(result, is(2));
     }
+
+    @Test
+    public void multiMax1() {
+        double result = Max.max(3.0, 2.0, 1.0);
+        assertThat(result, is(3.0));
+    }
+
+    @Test
+    public void multiMax2() {
+        double result = Max.max(2.0, 3.1, 1.0);
+        assertThat(result, is(3.1));
+    }
+
+    @Test
+    public void multiMax3() {
+        double result = Max.max(1.0, 2.0, 3.0);
+        assertThat(result, is(3.0));
+    }
+
+    @Test
+    public void multiMax4() {
+        double result = Max.max(2.0, 3.1, 3.1);
+        assertThat(result, is(3.1));
+    }
+
 }
