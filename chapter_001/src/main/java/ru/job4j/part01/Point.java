@@ -1,20 +1,27 @@
 package ru.job4j.part01;
 
 public class Point {
+    private int x;
+    private int y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     /**
      * Determines the distance between two points
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
+     * @param another another point
      * @return distance between two points
      */
-    public static double distance(int x1, int y1, int x2, int y2) {
-        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+    public double distance(Point another) {
+        return Math.sqrt(Math.pow((another.x - this.x), 2) + Math.pow((another.y - this.y), 2));
     }
 
     public static void main(String[] args) {
-        double result = distance(0, 0, 3, 4);
-        System.out.println("result (0, 0) to (2, 0) = " + result);
+        Point first = new Point(0, 0);
+        Point second = new Point(3, 4);
+        double result = first.distance(second);
+        System.out.println("distance = " + result);
     }
 }
