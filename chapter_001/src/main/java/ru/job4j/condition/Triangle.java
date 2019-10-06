@@ -3,9 +3,9 @@ package ru.job4j.condition;
 import ru.job4j.part01.Point;
 
 public class Triangle {
-    Point p1;
-    Point p2;
-    Point p3;
+    private Point p1;
+    private Point p2;
+    private Point p3;
 
     public Triangle(Point p1, Point p2, Point p3) {
         if (this.exist(p1, p2, p3)) {
@@ -16,11 +16,14 @@ public class Triangle {
     }
 
     /**
-     * Determines if a triangle exists with such sides
+     * Determines if a triangle exists with such tops
      *
+     * @param p1 first top
+     * @param p2 second top
+     * @param p3 third top
      * @return true or false
      */
-    private boolean exist(Point p1, Point p2, Point p3) {
+    public static boolean exist(Point p1, Point p2, Point p3) {
         double ab = p1.distance(p2);
         double bc = p2.distance(p3);
         double ac = p1.distance(p3);
@@ -31,8 +34,20 @@ public class Triangle {
         return result;
     }
 
-    public boolean exist() {
-        return this.p1 != null;
+    /**
+     * Determines if a triangle exists with such sides
+     *
+     * @param ab first side
+     * @param bc second side
+     * @param ac third side
+     * @return true or false
+     */
+    private boolean exist(double ab, double bc, double ac) {
+        boolean result = false;
+        if ((ab + ac) > bc && (ab + bc) > ac && (bc + ac) > ab) {
+            result = true;
+        }
+        return result;
     }
 
     /**
@@ -55,11 +70,11 @@ public class Triangle {
      */
     public double area() {
         double rsl = -1;
-        if (this.exist()) {
-            double p = this.perimeter() / 2;
-            double ab = this.p1.distance(this.p2);
-            double bc = this.p2.distance(this.p3);
-            double ac = this.p1.distance(this.p3);
+        double ab = this.p1.distance(this.p2);
+        double bc = this.p2.distance(this.p3);
+        double ac = this.p1.distance(this.p3);
+        if (this.exist(ab, bc, ac)) {
+            double p = (ab + bc + ac) / 2;
             rsl = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
         }
         return rsl;
