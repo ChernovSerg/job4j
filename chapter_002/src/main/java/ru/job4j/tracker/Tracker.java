@@ -53,6 +53,9 @@ public class Tracker {
         boolean result = false;
         int position = getIndexById(id);
         if (position >= 0) {
+            if (item.getId() == null) {
+                item.setId(this.generateId());
+            }
             items[position] = item;
             result = true;
         }
