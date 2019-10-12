@@ -37,8 +37,8 @@ public class TriangleTest {
     @Test
     public void calcArea() {
         Triangle triangle = new Triangle(new Point(0, 0), new Point(0, 1), new Point(1, 0));
-        double expected_area = 0.5;
-        double actual_area = triangle.area();
-        assertEquals(expected_area, actual_area, 0.00001);
+        double expectedArea = 0.5;
+        double actualArea = triangle.area();
+        assertEquals(expectedArea, actualArea, 0.00001);
     }
 }

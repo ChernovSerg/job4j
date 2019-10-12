@@ -20,15 +20,10 @@ public class TrackerTest {
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
         Item previous = new Item("test1");
-        // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
         tracker.add(previous);
-        // Создаем новую заявку.
         Item next = new Item("test2");
-        // Проставляем старый id из previous, который был сгенерирован выше.
         next.setId(previous.getId());
-        // Обновляем заявку в трекере.
         tracker.replace(previous.getId(), next);
-        // Проверяем, что заявка с таким id имеет новые имя test2.
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
 
@@ -53,6 +48,20 @@ public class TrackerTest {
         tracker.add(it1);
         tracker.add(it2);
         Item[] actual = tracker.findAll();
+        assertThat(actual.length, is(2));
+    }
+
+    @Test
+    public void testFindByName() {
+        Tracker tracker = new Tracker();
+        Item it1 = new Item("item1");
+        Item it2 = new Item("item2");
+        Item it3 = new Item("item3");
+        tracker.add(it1);
+        tracker.add(it2);
+        tracker.add(it3);
+        tracker.add(it2);
+        Item[] actual = tracker.findByName(it2.getName());
         assertThat(actual.length, is(2));
     }
 }
