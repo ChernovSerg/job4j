@@ -14,7 +14,7 @@ public class Tracker {
 
     private int getIndexById(String id) {
         int result = -1;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 result = i;
                 break;
@@ -25,7 +25,7 @@ public class Tracker {
 
     private int getIndexByName(String id) {
         int result = -1;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i] != null && items[i].getName().equals(id)) {
                 result = i;
                 break;
@@ -77,7 +77,7 @@ public class Tracker {
     public Item[] findByName(String name) {
         Item[] preResult = new Item[this.items.length];
         int count = 0;
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i] != null && this.items[i].getName().equals(name)) {
                 preResult[count++] = this.items[i];
             }
@@ -88,7 +88,7 @@ public class Tracker {
     public Item[] findAll() {
         Item[] preResult = new Item[this.items.length];
         int count = 0;
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i] != null) {
                 preResult[count++] = this.items[i];
             }
