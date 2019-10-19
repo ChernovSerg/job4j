@@ -15,7 +15,7 @@ public class Tracker {
     private int getIndexById(String id) {
         int result = -1;
         for (int i = 0; i < position; i++) {
-            if (items[i] != null && items[i].getId().equals(id)) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 result = i;
                 break;
             }
@@ -26,7 +26,7 @@ public class Tracker {
     private int getIndexByName(String id) {
         int result = -1;
         for (int i = 0; i < position; i++) {
-            if (items[i] != null && items[i].getName().equals(id)) {
+            if (this.items[i] != null && this.items[i].getName().equals(id)) {
                 result = i;
                 break;
             }
@@ -44,7 +44,7 @@ public class Tracker {
         Item result = null;
         int position = getIndexById(id);
         if (position >= 0) {
-            result = items[position];
+            result = this.items[position];
         }
         return result;
     }
@@ -53,10 +53,7 @@ public class Tracker {
         boolean result = false;
         int position = getIndexById(id);
         if (position >= 0) {
-            if (item.getId() == null) {
-                item.setId(this.generateId());
-            }
-            items[position] = item;
+            this.items[position] = item;
             result = true;
         }
         return result;
@@ -68,7 +65,7 @@ public class Tracker {
         if (position >= 0) {
             this.items[position] = null;
             this.position--;
-            System.arraycopy(items, position + 1, items, position, items.length - position - 1);
+            System.arraycopy(this.items, position + 1, this.items, position, this.items.length - position - 1);
             result = true;
         }
         return result;
@@ -78,7 +75,7 @@ public class Tracker {
         Item[] preResult = new Item[this.items.length];
         int count = 0;
         for (int i = 0; i < position; i++) {
-            if (items[i] != null && this.items[i].getName().equals(name)) {
+            if (this.items[i] != null && this.items[i].getName().equals(name)) {
                 preResult[count++] = this.items[i];
             }
         }
