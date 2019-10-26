@@ -5,8 +5,6 @@ import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.ui.Input;
 import ru.job4j.tracker.ui.UserAction;
 
-import java.util.Arrays;
-
 public class FindByIdCmd implements UserAction {
     @Override
     public String name() {
@@ -16,7 +14,7 @@ public class FindByIdCmd implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Find item by Id ===");
-        System.out.println(Arrays.toString((tracker.findAll())));
+//        System.out.println(Arrays.toString((tracker.findAll())));
         String idForFind = input.askStr("Enter the ID of the item you want to find: ");
         Item found = tracker.findById(idForFind);
         if (found != null) {
