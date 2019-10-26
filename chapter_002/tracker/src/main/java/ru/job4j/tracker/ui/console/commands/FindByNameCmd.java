@@ -16,7 +16,7 @@ public class FindByNameCmd implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
-        System.out.println(Arrays.toString((tracker.findAll())));
+//        System.out.println(Arrays.toString((tracker.findAll())));
         String nameForFind = input.askStr("Enter the NAME of the item you want to find: ");
         Item[] found2 = tracker.findByName(nameForFind);
         if (found2 != null && found2.length > 0) {
