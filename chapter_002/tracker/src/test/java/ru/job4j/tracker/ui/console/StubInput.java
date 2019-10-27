@@ -17,11 +17,15 @@ public class StubInput implements Input {
 
     @Override
     public int askInt(String question) {
-        return 0;
+        return Integer.parseInt(askStr(question));
     }
 
     @Override
     public int askInt(String question, int max) {
-        return askInt(question);
+        int val = askInt(question);
+        if (val < 0 || val > max) {
+            throw new IllegalStateException();
+        }
+        return val;
     }
 }

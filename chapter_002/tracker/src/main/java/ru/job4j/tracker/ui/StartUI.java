@@ -1,6 +1,7 @@
 package ru.job4j.tracker.ui;
 
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.ui.console.ConsoleInput;
 import ru.job4j.tracker.ui.console.ValidateInput;
 import ru.job4j.tracker.ui.console.commands.*;
 
@@ -22,7 +23,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input scanner = new ValidateInput();
+        Input scanner = new ValidateInput(new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] userActions = {
                 new CreateCmd(),
