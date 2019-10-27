@@ -1,7 +1,7 @@
 package ru.job4j.tracker.ui;
 
 import ru.job4j.tracker.Tracker;
-import ru.job4j.tracker.ui.console.ConsoleInput;
+import ru.job4j.tracker.ui.console.ValidateInput;
 import ru.job4j.tracker.ui.console.commands.*;
 
 public class StartUI {
@@ -9,7 +9,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.askInt("Select: ");
+            int select = input.askInt("Select: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -22,7 +22,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input scanner = new ConsoleInput();
+        Input scanner = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] userActions = {
                 new CreateCmd(),
