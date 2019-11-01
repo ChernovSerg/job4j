@@ -25,7 +25,6 @@ public class StartUI {
                 break;
             }
         }
-
         return action;
     }
 
