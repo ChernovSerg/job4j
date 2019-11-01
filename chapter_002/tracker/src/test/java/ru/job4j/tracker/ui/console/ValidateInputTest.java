@@ -37,7 +37,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt2Success() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"2", "1"})
+                new StubInput(new String[]{"0", "1"})
         );
         input.askInt("Enter", 2);
         assertThat(out.toString(), is(""));

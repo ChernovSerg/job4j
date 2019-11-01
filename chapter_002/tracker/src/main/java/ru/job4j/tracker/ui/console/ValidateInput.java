@@ -35,7 +35,7 @@ public class ValidateInput implements Input {
         int value = -1;
         do {
             try {
-                value = input.askInt(question, max);
+                value = input.askInt(question, max - 1);
                 invalid = false;
             } catch (IllegalStateException ise) {
                 System.out.println("Please select key from menu");
@@ -44,5 +44,10 @@ public class ValidateInput implements Input {
             }
         } while (invalid);
         return value;
+    }
+
+    private boolean isValid(String val) {
+
+        return true;
     }
 }

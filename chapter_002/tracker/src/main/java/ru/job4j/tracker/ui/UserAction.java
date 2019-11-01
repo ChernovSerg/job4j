@@ -8,4 +8,6 @@ public interface UserAction {
     boolean execute(Input input, Tracker tracker);
 
     boolean isCall();
+
+    int key();
 }

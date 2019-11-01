@@ -2,20 +2,19 @@ package ru.job4j.tracker.ui.console.commands;
 
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.ui.BaseAction;
 import ru.job4j.tracker.ui.Input;
-import ru.job4j.tracker.ui.UserAction;
 
 import java.util.Arrays;
 
-public class FindByNameCmd implements UserAction {
-    @Override
-    public String name() {
-        return "Find items by name";
+public class FindByNameCmd extends BaseAction {
+    public FindByNameCmd(int key, String name) {
+        super(key, name);
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Find items by name ===");
+        System.out.println("=== " + this.name() + " ===");
 //        System.out.println(Arrays.toString((tracker.findAll())));
         String nameForFind = input.askStr("Enter the NAME of the item you want to find: ");
         Item[] found2 = tracker.findByName(nameForFind);
@@ -24,11 +23,6 @@ public class FindByNameCmd implements UserAction {
         } else {
             System.out.println("Error: item not found.\n");
         }
-        return true;
-    }
-
-    @Override
-    public boolean isCall() {
         return true;
     }
 }
