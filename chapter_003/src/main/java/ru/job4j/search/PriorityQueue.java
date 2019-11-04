@@ -1,6 +1,7 @@
 package ru.job4j.search;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
@@ -9,6 +10,7 @@ public class PriorityQueue {
      * Метод должен вставлять в нужную позицию элемент.
      * Позиция определять по полю приоритет.
      * Для вставик использовать add(int index, E value)
+     *
      * @param task задача
      */
     public void put(Task task) {
@@ -16,11 +18,18 @@ public class PriorityQueue {
             tasks.add(task);
             return;
         }
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getPriority() > task.getPriority()) {
-                tasks.add(i, task);
+        ListIterator<Task> iter = tasks.listIterator();
+        boolean inserted = false;
+        while (iter.hasNext()) {
+            if (iter.next().getPriority() > task.getPriority()) {
+                iter.previous();
+                iter.add(task);
+                inserted = true;
                 break;
             }
+        }
+        if (!inserted) {
+            tasks.add(task);
         }
     }
 
