@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.StringJoiner;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -28,7 +29,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt1Success() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"2", "1"})
+                new StubInput(Arrays.asList("2", "1"))
         );
         input.askInt("Enter");
         assertThat(out.toString(), is(""));
@@ -37,7 +38,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt2Success() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"0", "1"})
+                new StubInput(Arrays.asList("0", "1"))
         );
         input.askInt("Enter", 2);
         assertThat(out.toString(), is(""));
@@ -46,7 +47,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt1Failure() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"invalid", "100"})
+                new StubInput(Arrays.asList("invalid", "100"))
         );
         input.askInt("Enter");
         assertThat(
@@ -61,7 +62,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt2Failure1() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"invalid", "1"})
+                new StubInput(Arrays.asList("invalid", "1"))
         );
         input.askInt("Enter", 2);
         assertThat(
@@ -76,7 +77,7 @@ public class ValidateInputTest {
     @Test
     public void whenAskInt2Failure2() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"5", "1"})
+                new StubInput(Arrays.asList("5", "1"))
         );
         input.askInt("Enter", 2);
         assertThat(

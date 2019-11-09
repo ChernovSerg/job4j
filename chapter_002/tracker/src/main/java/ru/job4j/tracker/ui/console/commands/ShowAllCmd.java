@@ -6,6 +6,7 @@ import ru.job4j.tracker.ui.BaseAction;
 import ru.job4j.tracker.ui.Input;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ShowAllCmd extends BaseAction {
     public ShowAllCmd(int key, String name) {
@@ -15,8 +16,8 @@ public class ShowAllCmd extends BaseAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== " + this.name() + " ====");
-        Item[] result = tracker.findAll();
-        System.out.println(Arrays.toString((result)) + "\n");
+        List<Item> result = tracker.findAll();
+        System.out.println(Arrays.toString((result.toArray())) + "\n");
         return true;
     }
 }

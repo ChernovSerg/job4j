@@ -9,6 +9,7 @@ import ru.job4j.tracker.ui.console.StubInput;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.StringJoiner;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -31,7 +32,7 @@ public class CommandsTests {
 
     @Test
     public void whenCreateCmd() {
-        new CreateCmd(0, "Add new item").execute(new StubInput(new String[]{"0"}), tracker);
+        new CreateCmd(0, "Add new item").execute(new StubInput(Arrays.asList("0")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Create a new Item ====")
                 .add("New item added.\n")
@@ -41,7 +42,7 @@ public class CommandsTests {
 
     @Test
     public void whenDeleteFailure() {
-        new DeleteCmd(0, "Delete item").execute(new StubInput(new String[]{"0"}), tracker);
+        new DeleteCmd(0, "Delete item").execute(new StubInput(Arrays.asList("0")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Delete item ===")
                 .add("Error: item not found.\n")
@@ -53,7 +54,7 @@ public class CommandsTests {
     public void whenDeleteSuccess() {
         Item item = new Item("item1");
         tracker.add(item);
-        new DeleteCmd(0, "Delete item").execute(new StubInput(new String[]{item.getId()}), tracker);
+        new DeleteCmd(0, "Delete item").execute(new StubInput(Arrays.asList(item.getId())), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Delete item ===")
                 .add("Item deleted.\n")
@@ -65,7 +66,7 @@ public class CommandsTests {
     public void whenEditSuccess() {
         Item item = new Item("item1");
         tracker.add(item);
-        new EditCmd(0, "Edit item").execute(new StubInput(new String[]{item.getId(), "new_name"}), tracker);
+        new EditCmd(0, "Edit item").execute(new StubInput(Arrays.asList(item.getId(), "new_name")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Edit item ===")
                 .add("Item replaced.\n")
@@ -77,7 +78,7 @@ public class CommandsTests {
     public void whenEditFailure() {
         Item item = new Item("item1");
         tracker.add(item);
-        new EditCmd(0, "Edit item").execute(new StubInput(new String[]{"find_item", "new_name"}), tracker);
+        new EditCmd(0, "Edit item").execute(new StubInput(Arrays.asList("find_item", "new_name")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Edit item ===")
                 .add("Error: item not found.\n")
@@ -87,7 +88,7 @@ public class CommandsTests {
 
     @Test
     public void whenExit() {
-        new ExitCmd(0, "Edit item").execute(new StubInput(new String[]{""}), tracker);
+        new ExitCmd(0, "Edit item").execute(new StubInput(Arrays.asList("")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Exit Program ===")
                 .toString();
@@ -98,7 +99,7 @@ public class CommandsTests {
     public void whenFindByIdSuccess() {
         Item item = new Item("item1");
         tracker.add(item);
-        new FindByIdCmd(0, "Find item by Id").execute(new StubInput(new String[]{item.getId()}), tracker);
+        new FindByIdCmd(0, "Find item by Id").execute(new StubInput(Arrays.asList(item.getId())), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Find item by Id ===")
                 .add("Item found: " + "Item{id='" + item.getId() + "', name='" + item.getName() + "'}\n")
@@ -110,7 +111,7 @@ public class CommandsTests {
     public void whenFindByIdFailure() {
         Item item = new Item("item1");
         tracker.add(item);
-        new FindByIdCmd(0, "Find item by Id").execute(new StubInput(new String[]{"0"}), tracker);
+        new FindByIdCmd(0, "Find item by Id").execute(new StubInput(Arrays.asList("0")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Find item by Id ===")
                 .add("Error: item not found.\n")
@@ -122,7 +123,7 @@ public class CommandsTests {
     public void whenFindByNameSuccess() {
         Item item = new Item("item1");
         tracker.add(item);
-        new FindByNameCmd(0, "Find items by name").execute(new StubInput(new String[]{"item1"}), tracker);
+        new FindByNameCmd(0, "Find items by name").execute(new StubInput(Arrays.asList("item1")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Find items by name ===")
                 .add("Item found: [Item{id='" + item.getId() + "', name='" + item.getName() + "'}]\n")
@@ -134,7 +135,7 @@ public class CommandsTests {
     public void whenFindByNameFailure() {
         Item item = new Item("item1");
         tracker.add(item);
-        new FindByNameCmd(0, "Find items by name").execute(new StubInput(new String[]{"qwe"}), tracker);
+        new FindByNameCmd(0, "Find items by name").execute(new StubInput(Arrays.asList("qwe")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Find items by name ===")
                 .add("Error: item not found.\n")
@@ -146,7 +147,7 @@ public class CommandsTests {
     public void whenShowAll() {
         Item item = new Item("item1");
         tracker.add(item);
-        new ShowAllCmd(0, "Show all items").execute(new StubInput(new String[]{""}), tracker);
+        new ShowAllCmd(0, "Show all items").execute(new StubInput(Arrays.asList("")), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Show all items ====")
                 .add("[Item{id='" + item.getId() + "', name='" + item.getName() + "'}]\n")
