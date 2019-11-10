@@ -32,10 +32,11 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        Item result = null;
+        Item result = new Item(null);
         int index = getIndexById(id);
         if (index >= 0) {
-            result = this.items.get(index);
+            result.setId(this.items.get(index).getId());
+            result.setName(this.items.get(index).getName());
         }
         return result;
     }
@@ -44,6 +45,7 @@ public class Tracker {
         boolean result = false;
         int index = getIndexById(id);
         if (index >= 0) {
+            item.setId(this.items.get(index).getId());
             this.items.set(index, item);
             result = true;
         }
@@ -64,14 +66,22 @@ public class Tracker {
         List<Item> result = new ArrayList<>();
         for (Item item : this.items) {
             if (item.getName().equals(name)) {
-                result.add(item);
+                Item found = new Item(item.getName());
+                found.setId(item.getId());
+                result.add(found);
             }
         }
         return result;
     }
 
     public List<Item> findAll() {
-        return this.items;
+        List<Item> result = new ArrayList<>();
+        for (Item item : this.items) {
+            Item t = new Item(item.getName());
+            t.setId(item.getId());
+            result.add(t);
+        }
+        return result;
     }
 
 }

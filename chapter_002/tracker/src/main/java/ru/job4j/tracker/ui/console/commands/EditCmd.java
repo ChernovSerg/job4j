@@ -18,7 +18,6 @@ public class EditCmd extends BaseAction {
         String idItem = input.askStr("Enter the ID of the item you want to replace with the new item: ");
         String newName = input.askStr("Enter a name for the new item: ");
         Item newItem = new Item(newName);
-        newItem.setId(idItem);
         if (tracker.replace(idItem, newItem)) {
             System.out.println("Item replaced.\n");
 //            System.out.println(Arrays.toString((tracker.findAll())) + "\n");
