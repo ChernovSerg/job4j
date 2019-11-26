@@ -25,13 +25,13 @@ public class SortUser {
         return result;
     }
 
-    public static List<User> sortByAllFields (List<User> list) {
+    public static List<User> sortByAllFields(List<User> list) {
         List<User> result = new ArrayList<>(list);
         Collections.sort(result, new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
                 int compareName = o1.getName().compareTo(o2.getName());
-                return compareName !=0 ? compareName : Integer.compare(o1.getAge(), o2.getAge());
+                return compareName != 0 ? compareName : Integer.compare(o1.getAge(), o2.getAge());
             }
         });
         return result;

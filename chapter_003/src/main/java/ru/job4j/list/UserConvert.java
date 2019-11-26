@@ -7,6 +7,7 @@ public class UserConvert {
 
     /**
      * Преобразует List в HashMap.
+     *
      * @param list список из элементов типа User
      * @return HashMap
      */
@@ -46,10 +47,10 @@ class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+        return "User{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", city='" + city + '\''
+                + '}';
     }
 }
