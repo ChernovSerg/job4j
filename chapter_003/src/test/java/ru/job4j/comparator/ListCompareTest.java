@@ -61,4 +61,26 @@ public class ListCompareTest {
         assertThat(rst, lessThan(0));
         assertThat(rst, is(-4));
     }
+
+    @Test
+    public void firstStringEmpty() {
+        ListCompare compare = new ListCompare();
+        int rst = compare.compare(
+                "",
+                "Petrov"
+        );
+        assertThat(rst, lessThan(0));
+        assertThat(rst, is(-6));
+    }
+
+    @Test
+    public void secontStringEmpty() {
+        ListCompare compare = new ListCompare();
+        int rst = compare.compare(
+                "Ura",
+                ""
+        );
+        assertThat(rst, greaterThan(0));
+        assertThat(rst, is(3));
+    }
 }
