@@ -23,9 +23,10 @@ public class ListCompareTest {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Ivanov",
-                "Ivanova"
+                "IvanovAAA"
         );
         assertThat(rst, lessThan(0));
+        assertThat(rst, is(-3));
     }
 
     @Test
@@ -36,6 +37,7 @@ public class ListCompareTest {
                 "Ivanova"
         );
         assertThat(rst, greaterThan(0));
+        assertThat(rst, is(7));
     }
 
     @Test
@@ -46,6 +48,7 @@ public class ListCompareTest {
                 "Patrov"
         );
         assertThat(rst, greaterThan(0));
+        assertThat(rst, is(4));
     }
 
     @Test
@@ -56,5 +59,6 @@ public class ListCompareTest {
                 "Petrov"
         );
         assertThat(rst, lessThan(0));
+        assertThat(rst, is(-4));
     }
 }
