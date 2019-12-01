@@ -72,5 +72,3 @@ jrebel.lic
 build
 .gradle
 *.pid
-
-checkstyle.xml
