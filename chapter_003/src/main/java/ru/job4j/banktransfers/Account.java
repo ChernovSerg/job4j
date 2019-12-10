@@ -27,6 +27,16 @@ public class Account {
         this.requisites = requisites;
     }
 
+    public boolean transfer(Account other, double amount) {
+        boolean result = false;
+        if (this.getValue() >= amount) {
+            this.value -= amount;
+            other.value += amount;
+            result = true;
+        }
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
