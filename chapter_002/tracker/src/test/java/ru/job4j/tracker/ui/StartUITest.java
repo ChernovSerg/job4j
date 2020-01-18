@@ -19,7 +19,7 @@ public class StartUITest {
     public void whenExit() {
         StubInput input = new StubInput(Arrays.asList("0"));
         StubAction action = new StubAction(0, "Stub action");
-        new StartUI().init(input, new Tracker(), Arrays.asList(action));
+        new StartUI(System.out::println).init(input, new Tracker(), Arrays.asList(action));
         assertThat(action.isCall(), is(true));
     }
 
@@ -30,7 +30,7 @@ public class StartUITest {
         System.setOut(new PrintStream(out));
         StubInput input = new StubInput(Arrays.asList("0"));
         StubAction action = new StubAction(0, "Stub action");
-        new StartUI().init(input, new Tracker(), Arrays.asList(action));
+        new StartUI(System.out::println).init(input, new Tracker(), Arrays.asList(action));
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("0. Stub action")
                 .toString();

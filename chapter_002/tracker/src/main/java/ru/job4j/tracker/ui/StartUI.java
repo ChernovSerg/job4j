@@ -7,8 +7,15 @@ import ru.job4j.tracker.ui.console.commands.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class StartUI {
+    private final Consumer<String> output;
+
+    public StartUI(Consumer<String> output) {
+        this.output = output;
+    }
+
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         UserAction action;
@@ -40,15 +47,16 @@ public class StartUI {
     public static void main(String[] args) {
         Input scanner = new ValidateInput(new ConsoleInput());
         Tracker tracker = new Tracker();
+        Consumer<String> output = System.out::println;
         List<UserAction> userActions = Arrays.asList(
-                new CreateCmd(1, "Add new item"),
-                new EditCmd(2, "Edit item"),
-                new FindByIdCmd(3, "Find item by Id"),
-                new FindByNameCmd(4, "Find items by name"),
-                new DeleteCmd(5, "Delete item"),
-                new ShowAllCmd(6, "Show all items"),
-                new ExitCmd(0, "Exit program")
+                new CreateCmd(1, "Add new item", output),
+                new EditCmd(2, "Edit item", output),
+                new FindByIdCmd(3, "Find item by Id", output),
+                new FindByNameCmd(4, "Find items by name", output),
+                new DeleteCmd(5, "Delete item", output),
+                new ShowAllCmd(6, "Show all items", output),
+                new ExitCmd(0, "Exit program", output)
         );
-        new StartUI().init(scanner, tracker, userActions);
+        new StartUI(output).init(scanner, tracker, userActions);
     }
 }
