@@ -26,6 +26,11 @@ public class CommandsTests {
         public void accept(String s) {
             stdout.println(s);
         }
+
+        @Override
+        public String toString() {
+            return out.toString();
+        }
     };
 
     @Before
@@ -45,8 +50,7 @@ public class CommandsTests {
                 .add("=== Create a new Item ====")
                 .add("New item added.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
-//        assertThat(this.output.toString(), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -56,7 +60,7 @@ public class CommandsTests {
                 .add("=== Delete item ===")
                 .add("Error: item not found.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -68,7 +72,7 @@ public class CommandsTests {
                 .add("=== Delete item ===")
                 .add("Item deleted.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -80,7 +84,7 @@ public class CommandsTests {
                 .add("=== Edit item ===")
                 .add("Item replaced.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -92,7 +96,7 @@ public class CommandsTests {
                 .add("=== Edit item ===")
                 .add("Error: item not found.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -101,7 +105,7 @@ public class CommandsTests {
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("=== Exit Program ===")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -113,7 +117,7 @@ public class CommandsTests {
                 .add("=== Find item by Id ===")
                 .add("Item found: " + "Item{id='" + item.getId() + "', name='" + item.getName() + "'}\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -125,7 +129,7 @@ public class CommandsTests {
                 .add("=== Find item by Id ===")
                 .add("Error: item not found.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -137,7 +141,7 @@ public class CommandsTests {
                 .add("=== Find items by name ===")
                 .add("Item found: [Item{id='" + item.getId() + "', name='" + item.getName() + "'}]\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -149,7 +153,7 @@ public class CommandsTests {
                 .add("=== Find items by name ===")
                 .add("Error: item not found.\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 
     @Test
@@ -161,6 +165,6 @@ public class CommandsTests {
                 .add("=== Show all items ====")
                 .add("[Item{id='" + item.getId() + "', name='" + item.getName() + "'}]\n")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
     }
 }
